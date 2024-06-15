@@ -37,17 +37,6 @@ type ResponseSolution struct {
 		AltSvc              string `json:"alt-svc"`
 	} `json:"headers"`
 	Response string `json:"response"`
-	Cookies  []struct {
-		Name     string  `json:"name"`
-		Value    string  `json:"value"`
-		Domain   string  `json:"domain"`
-		Path     string  `json:"path"`
-		Expires  float64 `json:"expires"`
-		Size     int     `json:"size"`
-		HTTPOnly bool    `json:"httpOnly"`
-		Secure   bool    `json:"secure"`
-		Session  bool    `json:"session"`
-		SameSite string  `json:"sameSite,omitempty"`
-	} `json:"cookies"`
+	Cookies  Cookies `json:"cookies"`
 	UserAgent string `json:"userAgent"`
 }
