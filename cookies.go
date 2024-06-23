@@ -41,8 +41,6 @@ func (c *Cookies) MarshalJSON() ([]byte, error) {
 			sameSite = "None"
 		case http.SameSiteLaxMode:
 			sameSite = "Lax"
-		default:
-			sameSite = "Default"
 		}
 		cookies[i] = Cookie{
 			Name:     cs.Name,
@@ -97,7 +95,7 @@ func (c *Cookies) UnmarshalJSON(b []byte) error {
 		case "Lax":
 			ck.SameSite = http.SameSiteLaxMode
 		default:
-			ck.SameSite = http.SameSiteDefaultMode
+			ck.SameSite = 0
 		}
 		*c = append(*c, ck)
 	}
